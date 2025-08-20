@@ -1,6 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import parsePhoneNumber, { AsYouType } from 'libphonenumber-js';
-
-import { GetMemberSignalCalendarData } from '../_api';
 
 export async function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -78,7 +77,7 @@ export const isEmpty = (value: string | number | object): boolean => {
   }
 };
 
-export const getEventColorByType = (data: GetMemberSignalCalendarData) => {
+export const getEventColorByType = (data: any) => {
   switch (data.signalStatus) {
     case 'critical':
       return data.signalResolutionStatus === 'open' ? '#FF4E4E' : '#FFB3B3';
