@@ -18,6 +18,16 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Generate .env file
+        run: |
+          echo "VITE__ADMIN_PORTAL__APP_ENV=local" >> ./apps/admin-portal/.env
+          echo "VITE__ADMIN_PORTAL__API_ENDPOINT=http://192.168.152.39:7291" >> ./apps/admin-portal/.env
+          echo "VITE__ADMIN_PORTAL__REACT_QUERY_DEBUGGING=false" >> ./apps/admin-portal/.env
+
+          echo "VITE__USER_PORTAL__APP_ENV=local" >> ./apps/user-portal/.env
+          echo "VITE__USER_PORTAL__API_ENDPOINT=http://192.168.152.39:7291" >> ./apps/user-portal/.env
+          echo "VITE__USER_PORTAL__REACT_QUERY_DEBUGGING=false" >> ./apps/user-portal/.env
+
       - name: Install Dependencies
         run: npm install
 
